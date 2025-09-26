@@ -25,6 +25,11 @@ const authRoutes = require("./routes/authRoutes.js");
 const protectedRoutes = require("./routes/protectedRoutes.js");
 
 app.use("/", authRoutes);
+
+// Render index.ejs at the root route
+app.get("/", (req, res) => {
+  res.render("index");
+});
 app.use("/", protectedRoutes);
 
 const PORT = process.env.PORT || 3000;
